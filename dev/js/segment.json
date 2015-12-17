@@ -1,0 +1,26 @@
+{      
+    "segment":[
+        {
+            "name": "Brands",
+            "colorByPoint": true,
+            "data": [
+                {
+                    "name": "Star Wars",
+                    "y": 56.33
+                }, 
+                {
+                    "name": "Snoopy",
+                    "y": 24.03
+                }, 
+                {
+                    "name": "Ninja Warrior",
+                    "y": 10.38
+                }, 
+                {
+                    "name": "Final Fantasy",
+                    "y": 4.77
+                }
+            ]
+        }
+    ]
+}

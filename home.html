@@ -22,8 +22,17 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     
-    <h1>Baze - Front-end starter kit</h1>
-    
+    <main>
+            <h1 class="text-center">Movie Stats</h1>
+            <div id="container" class="graph load" style="width:100%; height:400px;" 
+                data-movies="dev/js/movies.json" data-title="21 Movie Viewers">
+            </div>
+
+            <div id="pie" class="graph load" style="width:100%; height:400px;" 
+                data-segment="dev/js/segment.json" data-pieTitle="Viewers Segment">
+            </div>
+    </main>
+
     <script>window.myPrefix = '';</script>
     <script src="assets/js/main.min.js"></script>
 </body>
