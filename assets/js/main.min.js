@@ -20,7 +20,8 @@
             Site.fastClick();
             Site.enableActiveStateMobile();
             Site.WPViewportFix();
-            Site.highChart();
+            Site.lineChart();
+            Site.pieChart();
 
             window.Site = Site;
         },
@@ -50,12 +51,43 @@
             }
         },
 
-        highChart: function () {
-            var $graph  = $('.graph');
-            var $chart  = $('#container');
-            var $pie    = $('#pie');
+        lineChart: function () {
+            var $line  = $('.line');
 
-            if ( !$chart.length ) return;
+            if ( !$line.length ) return;
+
+            Modernizr.load( {
+                load    : assets._highchart,
+                complete: initChart
+            });
+
+            function initChart() {
+
+                var data        = $line.first().data('movies');
+
+                $.getJSON( data, function(json, textStatus) {
+                    $line.each(function(index, el) {
+                        $(this).highcharts({
+                            chart: {
+                                type: 'line'
+                            },
+                            title: {
+                                text: $(this).data('title')
+                            },
+                            xAxis: json.month,
+                            yAxis: json.legend,
+                            series: json.viewers[index].viewer
+                        });
+                    });
+                });
+
+                $line.removeClass('load');
+            }
+        },
+
+        pieChart: function () {
+            var $pie  = $('.pie');
+
             if ( !$pie.length ) return;
 
             Modernizr.load( {
@@ -65,40 +97,22 @@
 
             function initChart() {
 
-                var data        = $chart.attr('data-movies');
-                var title       = $chart.attr('data-title');
-                var pie         = $pie.attr('data-segment');
-                var pieTitle    = $pie.attr('data-pieTitle');
+                var data        = $pie.attr('data-segment');
+                var title       = $pie.attr('data-title');
 
                 $.getJSON( data, function(json, textStatus) {
-                    $chart.highcharts({
-                        chart: {
-                            type: 'line'
-                        },
-                        title: {
-                            text: title
-                        },
-                        xAxis: json.month,
-                        yAxis: json.legend,
-                        series: json.viewer
-                    });
-                });
-
-                $.getJSON( pie, function(json, textStatus) {
                     $pie.highcharts({
                         chart: {
                             type: 'pie'
                         },
                         title: {
-                            text: pieTitle
+                            text: title
                         },
                         series: json.segment
                     });
                 });
 
-                $graph.ready(function() {
-                    $graph.removeClass('load');
-                });
+                $pie.removeClass('load');
             }
         }
     };
