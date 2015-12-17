@@ -1,26 +1,52 @@
 {      
-    "segment":[
-        {
-            "name": "Brands",
-            "colorByPoint": true,
-            "data": [
-                {
-                    "name": "Star Wars",
-                    "y": 56.33
-                }, 
-                {
-                    "name": "Snoopy",
-                    "y": 24.03
-                }, 
-                {
-                    "name": "Ninja Warrior",
-                    "y": 10.38
-                }, 
-                {
-                    "name": "Final Fantasy",
-                    "y": 4.77
-                }
-            ]
-        }
+    "segments":[
+        { "segment":[
+            {
+                "name": "Brands",
+                "colorByPoint": true,
+                "data": [
+                    {
+                        "name": "Star Wars",
+                        "y": 56.33
+                    }, 
+                    {
+                        "name": "Snoopy",
+                        "y": 24.03
+                    }, 
+                    {
+                        "name": "Ninja Warrior",
+                        "y": 10.38
+                    }, 
+                    {
+                        "name": "Final Fantasy",
+                        "y": 4.77
+                    }
+                ]
+            }
+        ]},
+        { "segment":[
+            {
+                "name": "Brands",
+                "colorByPoint": true,
+                "data": [
+                    {
+                        "name": "Power Ranger",
+                        "y": 56.33
+                    }, 
+                    {
+                        "name": "Gaban",
+                        "y": 24.03
+                    }, 
+                    {
+                        "name": "Kamen Rider",
+                        "y": 10.38
+                    }, 
+                    {
+                        "name": "Ksatria Baja Hitam",
+                        "y": 4.77
+                    }
+                ]
+            }
+        ]}
     ]
 }
