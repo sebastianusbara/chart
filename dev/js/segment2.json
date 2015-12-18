@@ -1,0 +1,34 @@
+{      
+    "segment": [
+    {
+    "name": "Brands",
+    "colorByPoint": true,
+    "data": [
+        {
+            "name": "VLC",
+            "y": 123
+        }, 
+        {
+            "name": "MP Classic",
+            "y": 24.03,
+            "sliced": true,
+            "selected": true
+        }, 
+        {
+            "name": "GOM Player",
+            "y": 56
+        },  
+        {
+            "name": "Bonjour",
+            "y": 74
+        }, 
+        {
+            "name": "ES Player",
+            "y": 21
+        },  
+        {
+            "name": "Other Software",
+            "y": 30
+        }]
+    }]
+}

@@ -20,8 +20,6 @@
             Site.fastClick();
             Site.enableActiveStateMobile();
             Site.WPViewportFix();
-            Site.lineChart();
-            Site.pieChart();
 
             window.Site = Site;
         },
@@ -49,72 +47,81 @@
                 style.appendChild(fix);
                 document.getElementsByTagName('head')[0].appendChild(style);
             }
+        }
+
+    };
+
+    var Chart = {
+
+        init: function () {
+            Chart.lineChart();
+            Chart.pieChart();
+
+            window.Chart = Chart;
         },
 
         lineChart: function () {
             var $line  = $('.line');
-
             if ( !$line.length ) return;
 
-            Modernizr.load( {
-                load    : assets._highchart,
-                complete: initChart
-            });
+            $line.each(function(index, el) {
+                var $chartdata   = $(this);
+                var data         = $chartdata.data('movies');
+                var title        = $chartdata.data('title');
 
-            function initChart() {
-                $line.each(function(index, el) {
-                    var chartdata   = $(this);
-                    var data        = chartdata.data('movies');
-                    var title       = chartdata.data('title');
-
-                    $.getJSON( data, function(json, textStatus) {
-                        chartdata.highcharts({
-                            chart: {
-                                type: 'line'
-                                },
-                            title: {
-                                    text: title
-                                },
-                            xAxis: json.month,
-                            yAxis: json.legend,
-                            series: json.viewer
-                            });
-                        });
+                $.getJSON( data, function(json, textStatus) {
+                    $chartdata.highcharts({
+                        chart: {
+                            type: 'line'
+                        },
+                        title: {
+                            text: title
+                        },
+                        xAxis: json.month,
+                        yAxis: json.legend,
+                        series: json.viewer
                     });
 
-                $line.removeClass('load');
-            }
+                    $chartdata.removeClass('load');
+                })
+                .fail(function() {
+                    $chartdata.removeClass('load');
+                    $chartdata.
+                    append('<div class="err">Failed to Fetch Data</div>');
+                });
+            });         
+        },
+
+        pieChart: function () {
+            var $pie  = $('.pie');
+            if ( !$pie.length ) return;
+
+            $pie.each(function(index, el) {
+                var $chartdata   = $(this);
+                var data         = $chartdata.data('segment');
+                var title        = $chartdata.data('title');
+
+                $.getJSON( data, function(json, textStatus) {
+                    $chartdata.highcharts({
+                        chart: {
+                            type: 'pie'
+                        },
+                        title: {
+                            text: title
+                        },
+                        series: json.segment
+                    });
+
+                    $chartdata.removeClass('load');
+                })
+                .fail(function() {
+                    $chartdata.removeClass('load');
+                    $chartdata.
+                    append('<div class="err">Failed to Fetch Data</div>');
+                });
+            });         
         }
 
-        // pieChart: function () {
-        //     var $pie  = $('.pie');
-
-        //     if ( !$pie.length ) return;
-
-        //     Modernizr.load( {
-        //         load    : assets._highchart,
-        //         complete: initChart
-        //     });
-
-        //     function initChart() {
-
-        //         var data        = $pie.first().data('segment');
-
-        //         $.getJSON( data, function(json, textStatus) {
-        //             $pie.highcharts({
-        //                 chart: {
-        //                     type: 'pie'
-        //                 },
-        //                 title: {
-        //                     text: title
-        //                 },
-        //                 series: json.segments[index].segment
-        //             });
-        //         });
-
-        //         $pie.removeClass('load');
-        //     }
-        // }
     };
 
     var checkJquery = function () {
@@ -127,9 +134,15 @@
         ]);
     };
 
-    Modernizr.load({
-        load    : assets._jquery_cdn,
-        complete: checkJquery
-    });
+    Modernizr.load([
+        {
+            load    : assets._jquery_cdn,
+            complete: checkJquery
+        },
+        {
+            load    : assets._highchart,
+            complete: Chart.init
+        }
+    ]);
 
 })( window, document );

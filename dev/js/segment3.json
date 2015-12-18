@@ -1,0 +1,34 @@
+{      
+    "segment": [
+    {
+    "name": "Brands",
+    "colorByPoint": true,
+    "data": [
+        {
+            "name": "Thriller",
+            "y": 72
+        }, 
+        {
+            "name": "Comedy",
+            "y": 30,
+            "sliced": true,
+            "selected": true
+        }, 
+        {
+            "name": "Drama",
+            "y": 120
+        },  
+        {
+            "name": "Horror",
+            "y": 68
+        }, 
+        {
+            "name": "Action",
+            "y": 80
+        },  
+        {
+            "name": "Gore",
+            "y": 93
+        }]
+    }]
+}

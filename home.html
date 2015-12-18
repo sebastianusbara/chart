@@ -23,19 +23,42 @@
     <![endif]-->
     
     <main>
-            <h1 class="text-center">Movie Stats</h1>
-            
-            <div class="line load" style="width:100%; height:400px;" 
-                data-movies="dev/js/movies1.json" data-title="Kekinian">
-            </div>
+        <h1 class="text-center">Movie Stats</h1>
 
-            <div class="line load" style="width:100%; height:400px;" 
-                data-movies="dev/js/movies2.json" data-title="Nostalgia">
+        <div class="line load" data-movies="dev/js/movies1.json" 
+        data-title="Kekinian">
+        </div>
+        <div class="line load" data-movies="dev/js/movies2.json" 
+        data-title="Nostalgia">
+        </div>
+        <div class="line load" data-movies="dev/js/movies3.json" 
+        data-title="Cerita Rakyat">
+        </div>
+        
+        <div class="container">
+            <div class="bzg">
+                <div class="bzg_c" data-col="m6">
+                    <div class="pie load" data-segment="dev/js/segment1.json" 
+                    data-title="Browser">
+                    </div>
+                </div>     
+                <div class="bzg_c" data-col="m6">
+                    <div class="pie load" data-segment="dev/js/segment2.json" 
+                    data-title="Movie Player">
+                    </div>
+                </div>
+                <div class="bzg_c" data-col="m6">
+                    <div class="pie load" data-segment="dev/js/segment3.json" 
+                    data-title="Genre">
+                    </div>
+                </div>
+                <div class="bzg_c" data-col="m6">
+                    <div class="pie load" data-segment="dev/js/segment4.json" 
+                        data-title="Sutradara">
+                    </div>
+                </div>
             </div>
-
-            <div class="line load" style="width:100%; height:400px;" 
-                data-movies="dev/js/movies3.json" data-title="Cerita Rakyat">
-            </div>
+        </div>
     </main>
 
     <script>window.myPrefix = '';</script>

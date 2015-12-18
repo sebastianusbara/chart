@@ -1,0 +1,34 @@
+{      
+    "segment": [
+    {
+    "name": "Brands",
+    "colorByPoint": true,
+    "data": [
+        {
+            "name": "Steven Spielberg",
+            "y": 78
+        }, 
+        {
+            "name": "Hanung Bramantyo",
+            "y": 66,
+            "sliced": true,
+            "selected": true
+        }, 
+        {
+            "name": "Dewi Lestari",
+            "y": 33
+        },  
+        {
+            "name": "Cameron",
+            "y": 79
+        }, 
+        {
+            "name": "M.N. Syahmalan",
+            "y": 90
+        },  
+        {
+            "name": "A. Jodorowsky",
+            "y": 120
+        }]
+    }]
+}
